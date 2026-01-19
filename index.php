@@ -4,112 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVgenerator</title>
-    <style></style>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div>
-        <div>
-            <form action="generate_pdf.php">            
-                <div>
-                    <label>IDENTITÉ</label>
-                    <div>
-                        <div>    <input type="text" id="in-fname" name="fname" placeholder="Prenom"><br><br>
-                        </div>
-                        <div>    <input type="text" id="in-lname" name="lname" placeholder="Nom"><br><br>
-                        </div>
+
+<div class="container-fluid py-4">
+    <div class="row">
+
+        <!-- FORMULAIRE -->
+        <div class="col-md-6 mb-4">
+            <form action="generate_pdf.php" method="post" enctype="multipart/form-data"
+                  class="card p-4 shadow-sm">
+
+                <!-- IDENTITÉ -->
+                <label class="form-label fs-5 mt-2">IDENTITÉ</label>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" id="in-fname" name="fname" class="form-control"
+                               placeholder="Prénom">
                     </div>
-                        <input type="text" id="in-headline" name="headdline" placeholder="Titre professionnel"> <br><br>
-                        <input type="text" id="in-summary" name="summary" placeholder="Résumé de vos points forts"><br><br>
-                </div>
-                <div>
-                    <label>CONTACT & PHOTO</label>
-                    <input type="text" id="in-adress" name="adress" placeholder="Adresse (Ville, rue, code postal)">
-                    <input type="email" id="in-mail" name="mail" placeholder="email">
-                    <input type="text" id="in-linkedin" name="linkedin" placeholder="lien linkedin">
-                    <input type="text" id="in-tel" name="tel" placeholder="numero de telephone">
-                    <input type="file" id="in-photo" name="photo" accept="image/*">
-                </div>
-            <hr>
-                <div>
-                    <label>EXPERIENCES</label>
-                    <button id="add-exp">Ajouter</button>
-                </div>
-                <div id="experience-list">
-                </div>
-                <div>
-                    <label>COMPETENCES</label>
-                    <button id="add-skill">Ajouter</button>
-                </div>
-                <div id="skill-list">
-                </div>
-                <div>
-                    <label>FORMATION</label>
-                    <button id="add-train">Ajouter</button>
-                </div>
-                <div id="train-list">
+                    <div class="col-md-6">
+                        <input type="text" id="in-lname" name="lname" class="form-control"
+                               placeholder="Nom">
+                    </div>
                 </div>
 
-                <div>
-                    <label>ENTREPRISE</label>
-                    <button id="add-company">Ajouter</button>
-                </div>
-                <div id="company-list">
-                </div>
-                <button type="submit">Générer le PDF</button>
+                <input type="text" id="in-headline" name="headline" class="form-control mt-3"
+                       placeholder="Titre professionnel">
+
+                <textarea id="in-summary" name="summary" rows="3"
+                          class="form-control mt-3"
+                          placeholder="Résumé de vos points forts"></textarea>
+
+                <!-- CONTACT -->
+                <label class="form-label fs-5 mt-4">CONTACT & PHOTO</label>
+
+                <input type="text" id="in-adress" name="adress" class="form-control"
+                       placeholder="Adresse (Ville, rue, code postal)">
+
+                <input type="email" id="in-mail" name="mail" class="form-control mt-2"
+                       placeholder="Email">
+
+                <input type="text" id="in-linkedin" name="linkedin" class="form-control mt-2"
+                       placeholder="Lien LinkedIn">
+
+                <input type="text" id="in-tel" name="tel" class="form-control mt-2"
+                       placeholder="Numéro de téléphone">
+
+                <input type="file" id="in-photo" name="photo"
+                       class="form-control mt-2" accept="image/*">
+
+                <hr>
+
+                <!-- EXPERIENCES -->
+                <label class="form-label fs-5">EXPÉRIENCES</label>
+                <button type="button" id="add-exp"
+                        class="btn btn-outline-primary btn-sm mb-2">
+                    Ajouter
+                </button>
+                <div id="experience-list"></div>
+
+                <!-- COMPÉTENCES -->
+                <label class="form-label fs-5 mt-3">COMPÉTENCES</label>
+                <button type="button" id="add-skill"
+                        class="btn btn-outline-primary btn-sm mb-2">
+                    Ajouter
+                </button>
+                <div id="skill-list"></div>
+
+                <!-- FORMATION -->
+                <label class="form-label fs-5 mt-3">FORMATION</label>
+                <button type="button" id="add-train"
+                        class="btn btn-outline-primary btn-sm mb-2">
+                    Ajouter
+                </button>
+                <div id="train-list"></div>
+
+                <!-- ENTREPRISE -->
+                <label class="form-label fs-5 mt-3">ENTREPRISE</label>
+                <button type="button" id="add-company"
+                        class="btn btn-outline-primary btn-sm mb-2">
+                    Ajouter
+                </button>
+                <div id="company-list"></div>
+
+                <button type="submit"
+                        class="btn btn-success w-100 mt-4">
+                    Générer le PDF
+                </button>
             </form>
         </div>
-        <div>
-            <div id="preview-side">
-                <div id="cv-preview">
-                    <div id="cv-main">
+
+        <!-- PREVIEW -->
+        <div class="col-md-6">
+            <div id="preview-side" class="card shadow-sm p-3">
+
+                <div id="cv-preview" class="d-flex">
+
+                    <!-- MAIN -->
+                    <div id="cv-main" class="flex-grow-1 p-4">
                         <h1>
-                            <span id="out-firstname">PRENOM</span>
+                            <span id="out-firstname">PRÉNOM</span>
                             <span id="out-lastnames">NOM</span>
                         </h1>
-                        <div id="out-headline">Titre du Profil
+
+                        <div id="out-headline" class="text-muted mb-3">
+                            Titre du Profil
                         </div>
-                        <div>Profil</div>
+
+                        <h4>Profil</h4>
                         <p id="out-summary"></p>
-                        <div>Experience professionnelle</div>
+
+                        <h4>Expérience professionnelle</h4>
                         <div id="out-experiences"></div>
                     </div>
-                    <div id="cv-sidebar">
-                        <img id="out-photo" src class="d-none">
-                        <div>CONTACT</div>
-                        <div id="out-adress">Ville, pays, code postale</div>
+
+                    <!-- SIDEBAR -->
+                    <div id="cv-sidebar" class="p-3 text-white">
+                        <img id="out-photo"
+                             class="img-fluid rounded-circle d-none mb-3">
+
+                        <h5>CONTACT</h5>
+                        <div id="out-adress">Ville, pays</div>
                         <div id="out-mail">email@exemple.com</div>
                         <div id="out-phone">06 00 00 00 00</div>
-                        <div id="out-linkedin">https://www.linkedin.com/in/profil</div>
+                        <div id="out-linkedin">
+                            linkedin.com/in/profil
+                        </div>
                     </div>
-                    <div id="sidebar-dynamic-content"></div>
+
                 </div>
             </div>
         </div>
+
     </div>
-    <script>
-    </script>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script src="js/script.js"></script>
+
 </body>
 </html>
-
-
-
-•
-Expériences professionnelles (plusieurs possibles)
-Intitulé du poste
-•
-Nomdel'entreprise
-Date de début
-Date de finfacultative
-Description des missions
-•
-Formations (plusieurs possibles)
-Intitulé du diplôme ou de la formation
-Établissement
-Date de début
-Date de finfacultative
-Description
-•
-Compétences (plusieurs possibles)
-Nomdelacompétence
-Niveau (débutant à expert ou notation libre)
-•

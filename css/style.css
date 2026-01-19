@@ -1,0 +1,99 @@
+/* GLOBAL */
+body {
+    background-color: #f8f9fa;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* FORMULAIRE */
+form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+/* PREVIEW CV */
+#cv-preview {
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* MAIN CONTENT */
+#cv-main {
+    flex: 3;
+    padding: 30px;
+}
+
+#cv-main h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#out-headline {
+    font-size: 18px;
+    font-weight: 500;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+#cv-main h4 {
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+/* SIDEBAR */
+#cv-sidebar {
+    flex: 1;
+    background-color: #212529;
+    color: #ffffff;
+    padding: 20px;
+}
+
+#cv-sidebar div {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#cv-sidebar img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* DYNAMIC LISTS */
+.dynamic-item {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* BUTTONS */
+.btn-add {
+    margin-bottom: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    #cv-preview {
+        flex-direction: column;
+    }
+
+    #cv-sidebar {
+        text-align: center;
+    }
+}
