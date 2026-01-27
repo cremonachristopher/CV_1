@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CVgenerator</title>
-
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -16,15 +12,9 @@
 
 <div class="container-fluid py-4">
     <div class="row">
-
-        <!-- FORMULAIRE -->
         <div class="col-md-6 mb-4">
-            <form action="generate_pdf.php" method="post" enctype="multipart/form-data"
-                  class="card p-4 shadow-sm">
-
-                <!-- IDENTITÉ -->
+            <form action="generate_pdf.php" method="post" enctype="multipart/form-data"  class="card p-4 shadow-sm">
                 <label class="form-label fs-5 mt-2">IDENTITÉ</label>
-
                 <div class="row">
                     <div class="col-md-6">
                         <input type="text" id="in-fname" name="fname" class="form-control"
@@ -43,7 +33,6 @@
                           class="form-control mt-3"
                           placeholder="Résumé de vos points forts"></textarea>
 
-                <!-- CONTACT -->
                 <label class="form-label fs-5 mt-4">CONTACT & PHOTO</label>
 
                 <input type="text" id="in-adress" name="adress" class="form-control"
@@ -63,7 +52,6 @@
 
                 <hr>
 
-                <!-- EXPERIENCES -->
                 <label class="form-label fs-5">EXPÉRIENCES</label>
                 <button type="button" id="add-exp"
                         class="btn btn-outline-primary btn-sm mb-2">
@@ -71,7 +59,6 @@
                 </button>
                 <div id="experience-list"></div>
 
-                <!-- COMPÉTENCES -->
                 <label class="form-label fs-5 mt-3">COMPÉTENCES</label>
                 <button type="button" id="add-skill"
                         class="btn btn-outline-primary btn-sm mb-2">
@@ -79,7 +66,6 @@
                 </button>
                 <div id="skill-list"></div>
 
-                <!-- FORMATION -->
                 <label class="form-label fs-5 mt-3">FORMATION</label>
                 <button type="button" id="add-train"
                         class="btn btn-outline-primary btn-sm mb-2">
@@ -87,7 +73,6 @@
                 </button>
                 <div id="train-list"></div>
 
-                <!-- ENTREPRISE -->
                 <label class="form-label fs-5 mt-3">ENTREPRISE</label>
                 <button type="button" id="add-company"
                         class="btn btn-outline-primary btn-sm mb-2">
@@ -102,13 +87,10 @@
             </form>
         </div>
 
-        <!-- PREVIEW -->
         <div class="col-md-6">
             <div id="preview-side" class="card shadow-sm p-3">
 
                 <div id="cv-preview" class="d-flex">
-
-                    <!-- MAIN -->
                     <div id="cv-main" class="flex-grow-1 p-4">
                         <h1>
                             <span id="out-firstname">PRÉNOM</span>
@@ -124,9 +106,14 @@
 
                         <h4>Expérience professionnelle</h4>
                         <div id="out-experiences"></div>
+
+                                <h4>Formation</h4>
+                                <div id="out-trainings"></div>
+
+                                <h4>Entreprises</h4>
+                                <div id="out-companies"></div>
                     </div>
 
-                    <!-- SIDEBAR -->
                     <div id="cv-sidebar" class="p-3 text-white">
                         <img id="out-photo"
                              class="img-fluid rounded-circle d-none mb-3">
@@ -135,22 +122,16 @@
                         <div id="out-adress">Ville, pays</div>
                         <div id="out-mail">email@exemple.com</div>
                         <div id="out-phone">06 00 00 00 00</div>
-                        <div id="out-linkedin">
-                            linkedin.com/in/profil
-                        </div>
+                        <div id="out-linkedin">linkedin.com/in/profil</div>
+                        <h4>Compétences</h4>
+                        <ul id="out-skills"></ul>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Custom JS -->
 <script src="js/script.js"></script>
 
 </body>
